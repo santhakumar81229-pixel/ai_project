@@ -1,0 +1,30 @@
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Node.js
+node_modules/
+npm-debug.log*
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Audio / temporary AI files
+*.webm
+*.wav
+*.mp3
+temp_audio.*
+test_audio.*
+
+# Build files
+dist/
+build/
+
+# VS Code / OS
+.vscode/
+.DS_Store
+Thumbs.db

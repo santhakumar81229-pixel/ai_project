@@ -1,0 +1,253 @@
+/* Uses variables, .btn, .badge, .glass and .section-title from Dashboard.css */
+
+/* ---------- HEADER ---------- */
+.mt-header {
+  padding: 48px 0 36px;
+  text-align: center;
+}
+
+.mt-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 28px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: 0.25s;
+}
+
+.mt-back:hover {
+  color: var(--gold);
+  transform: translateX(-4px);
+}
+
+.mt-header .badge {
+  display: inline-block;
+}
+
+.mt-title {
+  margin: 18px 0 10px;
+  font-family: var(--serif);
+  font-size: clamp(2rem, 6vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: 3px;
+  background: linear-gradient(180deg, #fff6d6 0%, var(--gold-light) 40%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 4px 30px rgba(212, 175, 55, 0.3));
+}
+
+.mt-desc {
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* ---------- RECORDING PANEL ---------- */
+.mt-record {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.mt-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #0a0a0d;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.mt-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #4a463c;
+}
+
+.mt-status.live {
+  color: var(--danger);
+  border-color: var(--danger);
+  background: rgba(229, 72, 77, 0.08);
+}
+
+.mt-status.live .mt-dot {
+  background: var(--danger);
+  animation: mt-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes mt-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(229, 72, 77, 0.7); }
+  70%  { box-shadow: 0 0 0 12px rgba(229, 72, 77, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(229, 72, 77, 0); }
+}
+
+/* big round mic button */
+.mt-rec-btn {
+  width: 96px;
+  height: 96px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  line-height: 1.3;
+  letter-spacing: 1.5px;
+  text-align: center;
+}
+
+.mt-rec-btn.stop {
+  background: transparent;
+  color: var(--danger);
+  border-color: var(--danger);
+  box-shadow: 0 0 30px rgba(229, 72, 77, 0.3);
+  animation: mt-ring 2s ease-in-out infinite;
+}
+
+.mt-rec-btn.stop:hover {
+  background: rgba(229, 72, 77, 0.12);
+}
+
+@keyframes mt-ring {
+  0%, 100% { box-shadow: 0 0 20px rgba(229, 72, 77, 0.25); }
+  50%      { box-shadow: 0 0 45px rgba(229, 72, 77, 0.5); }
+}
+
+.mt-hint {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ---------- TRANSCRIPT ---------- */
+.mt-transcript {
+  margin: 0;
+  max-height: 260px;
+  overflow-y: auto;
+  padding: 18px 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  background: #0a0a0d;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+/* ---------- SPEAKERS (conversation log) ---------- */
+.mt-speakers {
+  display: flex;
+  flex-direction: column;
+  max-height: 460px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.mt-speaker {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  padding: 16px 4px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+  animation: mt-in 0.35s ease both;
+}
+
+.mt-speaker:last-child {
+  border-bottom: none;
+}
+
+@keyframes mt-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.mt-speaker-name {
+  flex: 0 0 120px;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.mt-speaker-name::after {
+  content: " :";
+  color: var(--gold-dark);
+}
+
+.mt-speaker-text {
+  flex: 1;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.mt-empty {
+  padding: 28px;
+  text-align: center;
+  border: 1px dashed var(--border);
+  border-radius: 14px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- AUDIO ---------- */
+.mt-audio {
+  width: 100%;
+  height: 48px;
+  border-radius: 999px;
+  color-scheme: dark;
+}
+
+/* ---------- FOOTER ACTIONS ---------- */
+.mt-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+/* ---------- SCROLLBARS ---------- */
+.mt-transcript::-webkit-scrollbar,
+.mt-speakers::-webkit-scrollbar {
+  width: 8px;
+}
+
+.mt-transcript::-webkit-scrollbar-thumb,
+.mt-speakers::-webkit-scrollbar-thumb {
+  background: var(--gold-dark);
+  border-radius: 8px;
+}
+
+.mt-transcript::-webkit-scrollbar-track,
+.mt-speakers::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@media (max-width: 700px) {
+  .mt-speaker {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .mt-speaker-name {
+    flex: none;
+  }
+}
